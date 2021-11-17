@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My website</title>
+    <script>
+        function myOnClick() {
+            let input = document.getElementById("my-input")
+            let word = input.value
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", `http://localhost:8080/api/word/${word}`, false ); // false for synchronous request
+            xmlHttp.send( null );
+            alert(xmlHttp.responseText);
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Please insert a word below:
+    </p>
+    <label>
+        word:
+        <input id="my-input"/>
+    </label>
+    <button id="button" onclick="myOnClick()">Send</button>
+</body>
+</html>
